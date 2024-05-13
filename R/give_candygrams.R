@@ -30,7 +30,15 @@ give_candygrams <- function(person, number,
   number <- str_to_title(as.english(number))
 
 
-  glue::glue("{number} for {person}. {extra_message}")
+  glue::glue(
+    stringr::str_trim(
+      stringr::str_c(
+        "{number} for {person}.",
+        "{extra_message}"
+      ),
+      side = "both"
+    )
+  )
 
 
 
